@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply bg-background;
+    overflow-x: hidden;
+  }
+
+  body {
+    @apply bg-background text-white min-h-screen;
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+}
+
+/* Remove all the default styles that might conflict */
