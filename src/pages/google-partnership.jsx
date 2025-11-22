@@ -56,7 +56,7 @@ const GooglePartnership = () => {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8 }}
-              className="relative z-10 flex items-center gap-8 px-12"
+              className="relative z-10 flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8 px-4 md:px-12 w-full"
             >
               {/* Neuralyn Logo */}
               <motion.div
@@ -65,7 +65,7 @@ const GooglePartnership = () => {
                 transition={{ duration: 1, delay: 0.2, ease: 'easeOut' }}
                 className="flex flex-col items-center"
               >
-                <div className="text-6xl md:text-7xl font-bold tracking-wider text-white mb-4">Neuralyn</div>
+                <div className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-wider text-white mb-2 md:mb-4 text-center">Neuralyn</div>
               </motion.div>
 
               {/* X Symbol */}
@@ -73,7 +73,7 @@ const GooglePartnership = () => {
                 initial={{ opacity: 0, scale: 0 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.8, delay: 0.6, type: 'spring', stiffness: 150 }}
-                className="text-white text-7xl md:text-8xl font-light mx-8"
+                className="text-white text-4xl md:text-7xl lg:text-8xl font-light mx-2 md:mx-8"
               >
                 ×
               </motion.div>
@@ -88,9 +88,9 @@ const GooglePartnership = () => {
                 <img 
                   src="/Google.png" 
                   alt="Google for Startups" 
-                  className="h-24 w-auto"
+                  className="h-16 md:h-20 lg:h-24 w-auto"
                 />
-                <span className="text-white text-xl md:text-2xl font-light mt-4">Google for Startups</span>
+                <span className="text-white text-base md:text-xl lg:text-2xl font-light mt-2 md:mt-4 text-center">Google for Startups</span>
               </motion.div>
             </motion.div>
           </motion.div>

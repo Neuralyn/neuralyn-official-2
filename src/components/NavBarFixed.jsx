@@ -99,50 +99,63 @@ const Navbar = () => {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: '100%' }}
               transition={{ duration: 0.3, ease: 'easeInOut' }}
-              className="absolute right-0 top-0 h-full w-[280px] bg-black/90 backdrop-blur-xl border-l border-white/10 p-6"
+              className="absolute right-0 top-0 h-full w-[280px] bg-black/90 backdrop-blur-xl border-l border-white/10 flex flex-col"
             >
-              <div className="flex flex-col h-full">
-                <div className="flex-1 pt-16">
-                  <ul className="space-y-6">
-                    {[
-                      // Main Navigation
-                      { id: 'home', label: 'Home', path: '/' },
-                      { id: 'about', label: 'About', path: '/about' },
-                      { id: 'mission', label: 'Mission', path: '/mission' },
-                      { id: 'products', label: 'Products', path: '/products' },
-                      { id: 'healmind', label: 'HealMind_AI', path: '/healmind' },
-                      
-                      // Company & Team
-                      { id: 'team', label: 'Team', path: '/team' },
-                      { id: 'founder', label: 'Founder', path: '/founder' },
-                      { id: 'investors', label: 'Investors', path: '/investors' },
-                      
-                      // Resources & Media
-                      { id: 'blog', label: 'Blog', path: '/blog' },
-                      { id: 'media', label: 'Media/Press', path: '/media' },
-                      { id: 'roadmap', label: 'Roadmap', path: '/roadmap' },
-                      
-                      // Contact
-                      { id: 'contact', label: 'Contact', path: '/contact' },
-                    ].map((item, index) => (
-                      <motion.li
-                        key={item.id || item.label}
-                        initial={{ opacity: 0, x: 20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.3, delay: index * 0.08 }}
+              {/* Close Button */}
+              <div className="flex justify-end p-6 pb-4">
+                <button
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="text-white/80 hover:text-white transition-colors"
+                  aria-label="Close menu"
+                >
+                  <FiX size={24} />
+                </button>
+              </div>
+              
+              {/* Scrollable Menu List */}
+              <div className="flex-1 overflow-y-auto px-6 pb-6">
+                <ul className="space-y-6">
+                  {[
+                    // Main Navigation
+                    { id: 'home', label: 'Home', path: '/' },
+                    { id: 'about', label: 'About', path: '/about' },
+                    { id: 'mission', label: 'Mission', path: '/mission' },
+                    { id: 'products', label: 'Products', path: '/products' },
+                    { id: 'healmind', label: 'HealMind_AI', path: '/healmind' },
+                    
+                    // Company & Team
+                    { id: 'team', label: 'Team', path: '/team' },
+                    { id: 'founder', label: 'Founder', path: '/founder' },
+                    { id: 'investors', label: 'Investors', path: '/investors' },
+                    
+                    // Partnership
+                    { id: 'google-partnership', label: 'Google Partnership', path: '/google-partnership' },
+                    
+                    // Resources & Media
+                    { id: 'blog', label: 'Blog', path: '/blog' },
+                    { id: 'media', label: 'Media/Press', path: '/media' },
+                    { id: 'roadmap', label: 'Roadmap', path: '/roadmap' },
+                    
+                    // Contact
+                    { id: 'contact', label: 'Contact', path: '/contact' },
+                  ].map((item, index) => (
+                    <motion.li
+                      key={item.id || item.label}
+                      initial={{ opacity: 0, x: 20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.3, delay: index * 0.08 }}
+                    >
+                      <Link
+                        to={item.path}
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        className={`block text-base font-medium tracking-wide transition-colors duration-200 px-2 py-1 rounded text-white/70 hover:text-cyan-300 font-sans ${location.pathname === item.path ? 'text-cyan-300' : ''}`}
+                        style={{ letterSpacing: '0.01em' }}
                       >
-                        <Link
-                          to={item.path}
-                          onClick={() => setIsMobileMenuOpen(false)}
-                          className={`block text-base font-medium tracking-wide transition-colors duration-200 px-2 py-1 rounded text-white/70 hover:text-cyan-300 font-sans ${location.pathname === item.path ? 'text-cyan-300' : ''}`}
-                          style={{ letterSpacing: '0.01em' }}
-                        >
-                          {item.label}
-                        </Link>
-                      </motion.li>
-                    ))}
-                  </ul>
-                </div>
+                        {item.label}
+                      </Link>
+                    </motion.li>
+                  ))}
+                </ul>
               </div>
             </motion.div>
           </motion.div>
